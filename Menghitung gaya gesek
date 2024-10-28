@@ -1,0 +1,38 @@
+def hitung_gaya_normal(m, g=9.8):
+    N = m * g
+    return N
+
+def hitung_gaya_gesek_statis(s, N):
+    Fs = s * N
+    return Fs
+
+def hitung_gaya_gesek_kinetis(k, N):
+    Fk = k * N
+    return Fk
+
+def main():
+    print("Menghitung Gaya Gesek")
+    print("1. Hitung Gaya Normal (N):")
+    print("2. Hitung Gaya Gesek Statis (Fs):")
+    print("3. Hitung Gaya Gesek Kinetis (Fk):")
+
+    pilihan = input("Masukan pilihan 1/2/3: ")
+
+    if pilihan == "1":
+        m = float(input("Masukan massa benda dalam Kg: "))
+        N = hitung_gaya_normal(m)
+        print(f"Gaya normal sebesar: {N:.2f} N")
+    elif pilihan == "2":
+        s = float(input("Masukan koefisien gesek statis: "))
+        N = float(input("Masukan gaya normal dalam Newton: "))
+        Fs = hitung_gaya_gesek_statis(s, N)
+        print(f"Gaya gesek statis sebesar: {Fs:.2f} N")
+    elif pilihan == "3":
+        k = float(input("Masukan koefisien gesek kinetis: "))
+        N = float(input("Masukan gaya normal dalam Newton: "))
+        Fk = hitung_gaya_gesek_kinetis(k, N)
+        print(f"Gaya gesek kinetis sebesar: {Fk:.2f} N")
+    else:
+        print("Pilihan tidak valid")
+
+main()
